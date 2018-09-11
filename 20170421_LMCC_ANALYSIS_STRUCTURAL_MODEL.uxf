@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>472</x>
+      <y>16</y>
+      <w>200</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>
+&lt;&lt;singleton&gt;&gt;
+CricketClub
+
+--
+
+club : CricketClub
+players : Collection
+fixtures : Collection</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>240</y>
+      <w>184</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>
+Fixture
+
+--
+
+fixtureNumber : Integer
+fixtureType : FixtureType
+team : Team
+season : Year
+date : Date
+postcodeLocation : String 
+opposition : String
+result : Result
+playersAvailableFor : Collection
+playersSelectedFor : Collection
+playersPlayedFor : Collection</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>248</x>
+      <y>240</y>
+      <w>200</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>
+Player
+
+--
+
+playerNumber : Integer
+name : String
+address : String
+email : String
+landline : String
+mobile : String
+playerSummary : PlayerSummary
+playerPerformance : Collection
+wicketkeeperPerformance : Collection
+fixturesAvailableFor : Collection
+fixturesSelectedFor : Collection
+fixturesPlayedFor : Collection
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>584</x>
+      <y>136</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=[fixtureNumber]-&gt;
+m1=       1
+m2=0..1</panel_attributes>
+    <additional_attributes>50.0;10.0;50.0;70.0;260.0;70.0;260.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>344</x>
+      <y>136</y>
+      <w>224</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=[playerNumber]-&gt;
+m1=   1
+m2=   0..1</panel_attributes>
+    <additional_attributes>220.0;10.0;220.0;70.0;10.0;70.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>248</y>
+      <w>288</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=0..*
+m2=0..*
+available for &gt;</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>296</y>
+      <w>288</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=0..*
+m2=0..11
+selected for &gt;</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>464</y>
+      <w>40</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..5</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>480</y>
+      <w>184</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>
+PlayerPerformanceInFixture
+
+--
+
+batted : Boolean
+duck : Boolean
+numberOfRuns : Integer
+out : Boolean
+bowled : Boolean
+numberOfRunsConceded : Integer
+numberOfWicketsTaken : Integer
+numberOfOutfieldCatches : Integer
+gamePlayedAsKeeper : Boolean
+numberOfKeeperCatches : Integer
+numberOfStumpings : Integer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>352</y>
+      <w>288</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=0..*
+m2=0..11
+played for &gt;</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>528</y>
+      <w>184</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>
+PlayerPerformance
+
+--
+
+fixtureType : FixtureType
+team : Team
+gamesPlayed : Integer
+numberOfInnings : Integer
+numberOfRuns : Integer
+numberOfDucks : Integer
+numberOfNotOuts : Integer
+battingAverage : Real
+numberOfRunsConceded : Integer
+numberOfWicketsTaken : Integer
+bowlingAverage : Real
+numberOfOutfieldCatches : Integer
+allRounderIndex : Real</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>528</y>
+      <w>184</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>
+WicketkeeperPerformance
+
+--
+
+fixtureType : FixtureType
+team : Team
+gamesPlayedAsKeeper : Integer
+numberOfKeeperCatches : Integer
+numberOfStumpings : Integer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>464</y>
+      <w>40</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..5</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>360</y>
+      <w>80</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0;80.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>8</x>
+      <y>0</y>
+      <w>377</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+Long Marston Cricket Club Player And Fixture Management System 
+Analysis Model 21/04/2017</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=textHeight();
+
+drawRectangle(0,0,width,height);
+
+for(String textline : textlines) {
+	y += printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>8</x>
+      <y>240</y>
+      <w>176</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>
+PlayerSummary
+
+--
+
+captain : Boolean
+wicketkeeper : Boolean
+classification : PlayerClassification
+teamPreference : Team</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>176</x>
+      <y>296</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..1</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>8</x>
+      <y>80</y>
+      <w>136</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>
+&lt;&lt;enumeration&gt;&gt;
+PlayerClassification
+
+--
+
+Batsman
+Bowler
+All-rounder
+Wicketkeeper
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>856</x>
+      <y>80</y>
+      <w>96</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>
+&lt;&lt;enumeration&gt;&gt;
+FixtureType
+
+--
+
+League
+Evening Cup
+Sunday Cup
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>8</x>
+      <y>392</y>
+      <w>96</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>
+&lt;&lt;enumeration&gt;&gt;
+Team
+
+--
+
+First XI
+Second XI
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>240</y>
+      <w>160</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>
+&lt;&lt;enumeration&gt;&gt;
+Result
+
+--
+
+To Be Determined
+Six Point Win
+Five Point Win
+One Point Loss
+No Points Loss
+Three Point Tie
+Cup Win
+Cup Loss
+Abandoned Before Starting
+Abandoned After Starting
+Concession By Long Marston
+Concession By Opposition
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>248</x>
+      <y>80</y>
+      <w>152</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Any Player that is linked to
+a particular Fixture via the
+selected for association
+must also be linked to the
+same Fixture via the
+available for association </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>104</y>
+      <w>152</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>144</y>
+      <w>160</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>536</x>
+      <y>688</y>
+      <w>152</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Any Player that is linked to
+a particular Fixture via the
+played for association must 
+also be linked to the same
+Fixture via the selected for
+association </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>304</y>
+      <w>24</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;480.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>592</x>
+      <y>360</y>
+      <w>24</w>
+      <h>344</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;410.0</additional_attributes>
+  </element>
+</diagram>

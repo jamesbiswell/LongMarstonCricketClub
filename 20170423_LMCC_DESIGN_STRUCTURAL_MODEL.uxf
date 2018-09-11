@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>63</y>
+      <w>423</w>
+      <h>648</h>
+    </coordinates>
+    <panel_attributes>
+Player
+
+--
+
+- playerNumber : Integer
+- name : String
+- address : String
+- email : String
+- landline : String
+- mobile : String
+- playerSummary : playerSummary
+- playerPerformance : HashSet&lt;PlayerPerformance&gt;
+- wicketkeeperPerformance : HashSet&lt;WicketkeeperPerformance&gt;
+- fixturesAvailableFor : HashSet&lt;Fixture&gt;
+- fixturesSelectedFor : HashSet&lt;Fixture&gt;
+- fixturesPlayedFor : HashSet&lt;Fixture&gt;
+
+--
+
+class constructor(s)
+
+public getters and setters 
+for class attributes
+
++ getPlayerSummary() : PlayerSummary
++ setPlayerSummary()
++ getPlayerPerformance() : Collection&lt;PlayerPerformance&gt;
++ setPlayerPerformance()
++ addPlayerPerformance() : Boolean
++ getWicketkeeperPerformance() : Collection&lt;WicketkeeperPerformance&gt;
++ setWicketkeeperPerformance()
++ addWicketkeeperPerformance() : Boolean
++ addFixtureAvailableFor() : Boolean
++ deleteFixtureAvailableFor() : Boolean
++ viewFixturesAvailableFor() : Collection&lt;Fixture&gt;
++ addFixtureSelectedFor() : Boolean
++ deleteFixtureSelectedFor() : Boolean
++ viewFixturesSelectedFor() : Collection&lt;Fixture&gt;
++ addFixturePlayedFor() : Boolean
++ deleteFixturePlayedFor() : Boolean
++ viewFixturesPlayedFor() : Collection&lt;Fixture&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>63</y>
+      <w>270</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>
+&lt;&lt;singleton&gt;&gt;
+CricketClub
+
+--
+
+- club : CricketClub
+- players : HashMap&lt;Integer,Player&gt;
+- fixtures : HashMap&lt;Integer,Fixture&gt;
+
+--
+
++ getInstance() : CricketClub
++ addPlayer()
++ viewPlayerList() : Map&lt;Integer,Player&gt;
++ viewPlayer() : Player
++ amendPlayer()
++ deletePlayer()
++ addFixture() : Boolean
++ viewFixtureList() : Map&lt;Integer,Fixture&gt;
++ viewFixture() : Fixture
++ amendFixture() : Boolean
++ deleteFixture()
++ addFixtureResults()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>981</x>
+      <y>63</y>
+      <w>288</w>
+      <h>468</h>
+    </coordinates>
+    <panel_attributes>
+Fixture
+
+--
+
+- fixtureNumber : Integer
+- fixtureType : FixtureType
+- team : Team
+- season : String
+- date : Integer
+- postcodeLocation : String 
+- opposition : String
+- result : Result
+- playersAvailableFor : HashSet&lt;Player&gt;
+- playersSelectedFor : HashSet&lt;Player&gt;
+- playersPlayedFor : HashSet&lt;Player&gt;
+
+--
+
+class constructor(s)
+
+public getters and setters
+for class attributes
+
++ addPlayerAvailableFor() : Boolean
++ deletePlayerAvailableFor() : Boolean
++ viewPlayersAvailableFor() : Collection&lt;Player&gt;
++ addPlayerSelectedFor() : Boolean
++ deletePlayerSelectedFor() : Boolean
++ viewPlayersSelectedFor() : Collection&lt;Player&gt;
++ addPlayerPlayedFor() : Boolean
++ deletePlayerPlayedFor() : Boolean
++ viewPlayersPlayedFor() : Collection&lt;Player&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>478</w>
+      <h>37</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+Long Marston Cricket Club Player And Fixture Management System 
+Design Model 23/04/2017</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=textHeight();
+
+drawRectangle(0,0,width,height);
+
+for(String textline : textlines) {
+	y += printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>63</y>
+      <w>234</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>
+PlayerSummary
+
+--
+
+- captain : Boolean
+- wicketkeeper : Boolean
+- classification : PlayerClassification
+- teamPreference : Team
+
+--
+
+class constructor(s)
+
+public getters and setters 
+for class attributes</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>306</y>
+      <w>234</w>
+      <h>405</h>
+    </coordinates>
+    <panel_attributes>
+PlayerPerformance
+
+--
+
+- fixtureType : FixtureType
+- team : Team
+- gamesPlayed : Integer
+- numberOfInnings : Integer
+- numberOfRuns : Integer
+- numberOfDucks : Integer
+- numberOfNotOuts : Integer
+- battingAverage : Float
+- numberOfRunsConceded : Integer
+- numberOfWicketsTaken : Integer
+- bowlingAverage : Float
+- numberOfOutfieldCatches : Integer
+- allRounderIndex : Float
+
+--
+
+class constructor(s)
+
+public getters and setters 
+for class attributes
+
+getFixtureTypeAndTeamType() : String
+calculateAveragesAndARIndex()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>441</y>
+      <w>270</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>
+WicketkeeperPerformance
+
+--
+
+- fixtureType : FixtureType
+- team : Team
+- gamesPlayedAsKeeper : Integer
+- numberOfKeeperCatches : Integer
+- numberOfStumpings : Integer
+
+--
+
+class constructor(s)
+
+public getters and setters
+for class attributes
+
+getFixtureTypeAndTeamType() : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
